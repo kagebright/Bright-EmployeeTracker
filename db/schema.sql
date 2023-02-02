@@ -12,6 +12,8 @@ CREATE TABLE department (
   PRIMARY KEY (id)
 );
 
+DROP TABLE IF EXISTS role;
+
 CREATE TABLE role (
   id INT PRIMARY KEY AUTO_INCREMENT,
   title varchar(30),
@@ -19,6 +21,8 @@ CREATE TABLE role (
   department_id INT,,
   FOREIGN KEY (department_id) REFERENCES department(id)
 );
+
+DROP TABLE IF EXISTS employee;
 
 CREATE TABLE employee (
   id INT PRIMARY KEY AUTO_INCREMENT,
