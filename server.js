@@ -1,7 +1,7 @@
 const inquirer = require('inquirer');
 
 //importing mysql2
-const mysql = require('mysql');
+const mysql = require('mysql2');
 
 //connecting to database
 const db = mysql.createConnection(
@@ -57,7 +57,7 @@ function mainMenu() {
               updateEmployeeRole();
               break;
             case 'Quit':
-              connection.end();
+              db.end();
               break;
     }});
 }
@@ -67,8 +67,8 @@ mainMenu();
 
 //view all departments
 function viewDepartments() {
-    const query = 'SELECT * FROM departments';
-    connection.query(query, (error, results) => {
+    const query = 'SELECT * FROM department';
+    db.query(query, (error, results) => {
       if (error) throw error;
       console.table(results);
       mainMenu();
@@ -76,8 +76,8 @@ function viewDepartments() {
   }
 //view all roles
   function viewRoles() {
-    const query = 'SELECT * FROM roles';
-    connection.query(query, (error, results) => {
+    const query = 'SELECT * FROM role';
+    db.query(query, (error, results) => {
       if (error) throw error;
       console.table(results);
       mainMenu();
@@ -85,8 +85,8 @@ function viewDepartments() {
   }
 //view all employees
   function viewEmployees() {
-    const query = 'SELECT * FROM employees';
-    connection.query(query, (error, results) => {
+    const query = 'SELECT * FROM employee';
+    db.query(query, (error, results) => {
       if (error) throw error;
       console.table(results);
       mainMenu();
@@ -104,8 +104,8 @@ function addDepartment() {
         }
       ])
       .then(answers => {
-        const query = 'INSERT INTO departments SET ?';
-        connection.query(query, { name: answers.name }, (error, results) => {
+        const query = 'INSERT INTO department SET ?';
+        db.query(query, { name: answers.name }, (error, results) => {
           if (error) throw error;
           console.log(`Department "${answers.name}" added successfully!`);
           mainMenu();
@@ -134,8 +134,8 @@ function addDepartment() {
         }
       ])
       .then(answers => {
-        const query = 'INSERT INTO roles SET ?';
-        connection.query(
+        const query = 'INSERT INTO role SET ?';
+        db.query(
           query,
           {
             title: answers.title,
@@ -177,8 +177,8 @@ function addDepartment() {
         }
     ])
     .then(answers => {
-        const query = 'INSERT INTO employees SET ?';
-      connection.query(
+        const query = 'INSERT INTO employee SET ?';
+      db.query(
         query,
         {
           first_name: answers.first_name,
@@ -213,8 +213,8 @@ function addDepartment() {
             }
           ])
           .then(answers => {
-            const query = 'UPDATE employees SET role_id = ? WHERE id = ?';
-            connection.query('SElECT', [answers.role_id, answers.id], (error, results) => {
+            const query = 'UPDATE employee SET role_id = ? WHERE id = ?';
+            db.query('SElECT', [answers.role_id, answers.id], (error, results) => {
               if (error) throw error;
               console.log('Employee role updated successfully!');
               mainMenu();

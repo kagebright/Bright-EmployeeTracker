@@ -7,7 +7,7 @@ USE employee_db;
 DROP TABLE IF EXISTS department;
 
 CREATE TABLE department (
-  id INT unsigned NOT NULL AUTO_INCREMENT,
+  id INT NOT NULL AUTO_INCREMENT,
   name varchar(30) NOT NULL,
   PRIMARY KEY (id)
 );
@@ -18,7 +18,7 @@ CREATE TABLE role (
   id INT PRIMARY KEY AUTO_INCREMENT,
   title varchar(30),
   salary decimal(10,2),
-  department_id INT,,
+  department_id INT,
   FOREIGN KEY (department_id) REFERENCES department(id)
 );
 
