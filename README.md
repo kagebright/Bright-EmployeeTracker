@@ -12,10 +12,10 @@ This week's task is to build a CMS application that allows a business owner to v
 ## Author
 - [Bright Abety](https://github.com/kagebright)
 
-### Screenshots: 
+## Screenshots: 
 ![Screen Shot 2023-02-03 at 10 03 55 PM](https://user-images.githubusercontent.com/113262558/216743721-0fce7c75-09f0-4a92-b6b7-a045daf70523.png)
 
 
 ## Links
 - [GitHub-repository](https://github.com/kagebright/Bright-EmployeeTracker)
-- [Demo](Uploading Employee Management App demo.mov…)
+- [Demo](https://user-images.githubusercontent.com/113262558/216743756-da20cbe1-87c1-42fc-b1b4-1baa1d9a2d62.mov)
