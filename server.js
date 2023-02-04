@@ -214,7 +214,7 @@ function addDepartment() {
           ])
           .then(answers => {
             const query = 'UPDATE employee SET role_id = ? WHERE id = ?';
-            db.query('SElECT', [answers.role_id, answers.id], (error, results) => {
+            db.query('UPDATE employee SET role_id = ? WHERE id = ?', [answers.role_id, answers.id], (error, results) => {
               if (error) throw error;
               console.log('Employee role updated successfully!');
               mainMenu();

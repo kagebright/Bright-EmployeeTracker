@@ -16,4 +16,4 @@ This week's task is to build a CMS application that allows a business owner to v
 
 ## Links
 - [GitHub-repository](https://github.com/kagebright/Bright-EmployeeTracker)
-- [video]
+- [video]()
